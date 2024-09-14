@@ -30,7 +30,7 @@ type UserModel struct {
 type User struct {
 	ID        int64     `json:"id"`
 	Email     string    `json:"email"`
-	Password  password  `json:"="`
+	Password  password  `json:"-"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }

@@ -8,6 +8,14 @@ import (
 	"github.org/tawanr/sensorly/internal/validator"
 )
 
+func (app *application) userDetailsHandler(w http.ResponseWriter, r *http.Request) {
+	user := app.contextGetUser(r)
+	err := app.writeJSON(w, http.StatusOK, user, nil)
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+	}
+}
+
 func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Request) {
 	var input struct {
 		Email    string `json:"email"`
